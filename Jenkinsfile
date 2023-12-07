@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
     registry = '076892551558.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
-    //registryCredential = 'ecr-user'
+    registryCredential = 'jenkins-role'
     dockerimage = ''
   }
     stages {
@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy image') {
             steps{
                 script{ 
-                    docker.withRegistry("https://"+registry,"ecr:us-east-1:") {
+                    docker.withRegistry("https://"+registry,"ecr:us-east-1:"+registryCredential) {
                         dockerImage.push()
                     }
                 }
