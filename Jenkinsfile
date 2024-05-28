@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout'){
             steps{
-                git branch: 'main', url: 'https://github.com/Hermann90/helloworld_jan_22.git'
+                git branch: 'master', url: 'https://github.com/jusstcater/jenkins_fork.git'
             }
         }
         stage('Code Build') {
